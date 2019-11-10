@@ -25,7 +25,7 @@ SECRET_KEY = '=5muzx^eut#y^qoc7jw2h4&d@1nd-1*i-t#29rj%k#ru(ccyz8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.130']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'photos',
+    'photos.apps.PhotoConfig',
     'core',
+    'social.apps.SocialConfig',
     'ckeditor',
 ]
 
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.processor.ctx_dict',
             ],
         },
     },

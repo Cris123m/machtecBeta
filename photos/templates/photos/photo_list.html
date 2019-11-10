@@ -1,7 +1,9 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block title2 %}{% block title1 %}{% block title %}Carrusel de imágenes{% endblock %}{% endblock %}{% endblock %}
+{% block banner %}collagephotos.jpeg{% endblock %}{% comment %} breadcrumbs-image.jpg {% endcomment %}
 {% block content %}
+{% include "photos/include/photo_menu.html" %}
 
       <!-- My Best Photos -->
       <section class="section text-center">
@@ -11,11 +13,15 @@
             {% for photo in photo_list %}
             <div class="item">
               <div class="slick-slide-inner">
-                <div class="slick-slide-caption"><a class="thumb-ann thumb-mixed_large" href="{% static 'core/images/group-image-4-1200x800-original.jpg' %}" data-lightgallery="item"><img class="thumb-ann__image" src="{% static 'core/images/home1-1-961x664.jpg' %}" alt="" width="961" height="664"/>
+                <div class="slick-slide-caption"><a class="thumb-ann thumb-mixed_large" href="{{photo.photo.url}}" data-lightgallery="item"><img class="thumb-ann__image" src="{{photo.photo.url}}" alt="" width="961" height="664"/>
                     <div class="thumb-ann__caption"> 
-                      <p class="thumb-ann__title heading-3">{{photo.title}}-{{photo.image.url}}</p>
+                      <p class="thumb-ann__title heading-3">{{photo.title}}</p>
                       <p class="thumb-ann__text">{{photo.content|striptags|safe|truncatechars:"200"}}</p>
                     </div></a>
+                    {% if request.user.is_staff %}
+                      <a href="{% url 'update' photo.id %}">Editar</a>
+                      <a href="{% url 'delete' photo.id %}">Borrar</a>
+                    {% endif %}
                 </div>
               </div>
             </div>

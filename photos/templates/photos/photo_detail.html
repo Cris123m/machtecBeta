@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title2 %}{% block title1 %}{% block title %}Agregar foto{% endblock %}{% endblock %}{% endblock %}
+{% block banner %}collagephotos.jpeg{% endblock %}{% comment %} breadcrumbs-image.jpg {% endcomment %}
+{% block content %}
+{% include "photos/include/photo_menu.html" %}
+  <!-- Book Your Photo Shoot-->
+  <section class="section section-md bg-white">
+    <div class="shell">
+      <!-- Image Centered-->
+      <section class="section section-md bg-white">
+        <div class="shell">
+          <div class="range">
+            <div class="cell-md-10 cell-lg-8">
+              <h2>Image Centered</h2>
+              <figure class="figure-light"><img class="img-centered" src="images/typography-1-770x485.jpg" alt="" width="770" height="485"/>
+                <figcaption>
+                  <p>Wedding Photo</p>
+                </figcaption>
+              </figure>
+              <p>Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+{% endblock %}

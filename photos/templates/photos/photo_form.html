@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title2 %}{% block title1 %}{% block title %}Agregar foto{% endblock %}{% endblock %}{% endblock %}
+{% block banner %}collagephotos.jpeg{% endblock %}{% comment %} breadcrumbs-image.jpg {% endcomment %}
+{% block content %}
+{% include "photos/include/photo_menu.html" %}
+  <!-- Book Your Photo Shoot-->
+  <section class="section section-md bg-white">
+    <div class="shell">
+      <div class="range range-50 range-sm-center range-md-left range-md-reverse range-md-middle">
+        
+        <div class="cell-sm-10 cell-md-11 wow fadeInLeft">
+          <article class="box-line"><span></span><span></span><span></span><span></span>
+            <div class="">
+              <!-- RD Mailform-->
+              <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="form-wrap">
+                  <input class="form-input" id="id_title" type="text" name="title" data-constraints="@Required">
+                  <label class="form-label" for="id_title">Título</label>
+                </div>
+                <div class="form-wrap">
+                  <label class="" for="id_content">Contenido</label>                  
+                  <div class="django-ckeditor-widget" data-field-id="id_content" style="display: inline-block;">
+                    <textarea class="form-input" cols="40" id="id_content" name="content" rows="10" required="" data-processed="0" data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 291, &quot;width&quot;: 835, &quot;filebrowserWindowWidth&quot;: 940, &quot;filebrowserWindowHeight&quot;: 725, &quot;language&quot;: &quot;es&quot;}" data-external-plugin-resources="[]" data-id="id_content" data-type="ckeditortype" data-constraints="@Required"></textarea>
+                  </div>
+                </div>
+                <div class="form-wrap">
+                  <label class="" for="id_photo">Fotografía</label>
+                  <input class="form-input" type="file" name="photo" accept="image/*" id="id_photo">                  
+                </div>
+                <div class="form-wrap">
+                  <label class="" for="id_order">Orden</label>
+                  <input class="form-input vIntegerField" type="number" name="order" value="0" id="id_order" data-constraints="@Required">                  
+                </div>
+                <div class="form-wrap form-button offset-1">
+                  <input class="button button-block button-primary-outline button-ujarak" type="submit" value="Guardar">
+                </div>
+              </form>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
