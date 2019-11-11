@@ -22,6 +22,9 @@ urlpatterns = [
     path('photos/', include('photos.urls')),
     path('products/', include('products.urls')),
     path('admin/', admin.site.urls),
+    #path autentificación
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('registration.urls')),
 ]
 
 if settings.DEBUG:

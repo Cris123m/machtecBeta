@@ -42,10 +42,21 @@
                     <p class="heading-5">Redes Sociales</p>
                     <div class="divider-modern"></div>
                     <ul class="list-inline-xs">
-                      <li><a class="icon icon-md icon-gray-7 fa fa-facebook" href="#"></a></li>
-                      <li><a class="icon icon-md icon-gray-7 fa fa-twitter" href="#"></a></li>
-                      <li><a class="icon icon-md icon-gray-7 fa fa-google" href="#"></a></li>
-                      <li><a class="icon icon-md icon-gray-7 fa fa-youtube" href="#"></a></li>
+                      {% if LINK_FACEBOOK %}
+                      <li><a class="icon icon-md icon-gray-7 fa fa-facebook" href="{{LINK_FACEBOOK}}"></a></li>
+                      {% endif %}
+                      {% if LINK_TWITTER %}
+                      <li><a class="icon icon-md icon-gray-7 fa fa-twitter" href="{{LINK_TWITTER}}"></a></li>
+                      {% endif %}
+                      {% if LINK_GOOGLE %}
+                      <li><a class="icon icon-md icon-gray-7 fa fa-google" href="{{LINK_GOOGLE}}"></a></li>
+                      {% endif %}
+                      {% if LINK_INSTAGRAM %}
+                      <li><a class="icon icon-md icon-gray-7 fa fa-instagram" href="{{LINK_INSTAGRAM}}"></a></li>
+                      {% endif %}
+                      {% if request.user.is_staff %}
+                      <li><a class="icon icon-md icon-gray-7 fa fa-edit" href="/admin/social/link/"></a></li>
+                      {% endif %}
                     </ul>
                   </div>
                   <div class="layout-columns__aside-item">
