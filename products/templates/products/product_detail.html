@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title2 %}{% block title1 %}{% block title %}Producto{% endblock %}{% endblock %}{% endblock %}
+{% block banner %}collagephotos.jpeg{% endblock %}{% comment %} breadcrumbs-image.jpg {% endcomment %}
+{% block content %}
+{% include "products/include/product_menu.html" %}
+  <!-- Book Your Photo Shoot-->
+  <section class="section section-md bg-white">
+    <div class="shell">
+      <!-- Image Centered-->
+      <section class="section section-md bg-white">
+        <div class="shell">
+          <div class="range">
+            <div class="cell-md-10 cell-lg-8">
+              <h2>{{product.title}}</h2>
+              <figure class="figure-light"><img class="img-centered" src="{{product.photo.url}}" alt="" width="770" height="485"/>
+                <figcaption>
+                  <p>${{product.price}}</p>
+                </figcaption>
+              </figure>
+              <p>{{product.description|safe}}</p>
+              {% if request.user.is_staff %}
+                <p><a href="{% url 'update' product.id %}">Editar</a></p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+{% endblock %}

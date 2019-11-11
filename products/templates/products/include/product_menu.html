@@ -1,7 +1,5 @@
 {% if request.user.is_staff %}
 {% load static %}
-<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
-<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script> 
 
 <div class="rd-navbar-wrap">
 <nav class="rd-navbar">
@@ -12,10 +10,10 @@
     <div class="rd-navbar-nav" id="nep">
       <ul class="rd-navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'createph' %}"><i>Agregar foto</i></a>
+          <a class="nav-link" href="{% url 'create' %}"><i>Agregar producto</i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'photos' %}"><i>Ver fotos</i></a>
+          <a class="nav-link" href="{% url 'products' %}"><i>Ver productos</i></a>
         </li>
       </ul>
     </div>

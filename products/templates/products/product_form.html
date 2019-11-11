@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title2 %}{% block title1 %}{% block title %}Agregar producto{% endblock %}{% endblock %}{% endblock %}
+{% block banner %}collagephotos.jpeg{% endblock %}{% comment %} breadcrumbs-image.jpg {% endcomment %}
+{% block content %}
+{% include "products/include/product_menu.html" %}
+  <!-- Book Your Photo Shoot-->
+  <section class="section section-md bg-white">
+    <div class="shell">
+      <div class="range range-50 range-sm-center range-md-left range-md-reverse range-md-middle">
+        
+        <div class="cell-sm-10 cell-md-11 wow fadeInLeft">
+          <article class="box-line"><span></span><span></span><span></span><span></span>
+            <div class="">
+              <!-- RD Mailform-->
+              <form class="" data-form-output="form-output-global" data-form-type="contact" method="post" enctype="multipart/form-data">{% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-wrap form-button offset-1">
+                  <input class="button button-block button-primary-outline button-ujarak" type="submit" value="Guardar">
+                </div>
+              </form>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

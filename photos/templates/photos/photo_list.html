@@ -19,8 +19,8 @@
                       <p class="thumb-ann__text">{{photo.content|striptags|safe|truncatechars:"200"}}</p>
                     </div></a>
                     {% if request.user.is_staff %}
-                      <a href="{% url 'update' photo.id %}">Editar</a>
-                      <a href="{% url 'delete' photo.id %}">Borrar</a>
+                      <a href="{% url 'updateph' photo.id %}">Editar</a>
+                      <a href="{% url 'deleteph' photo.id %}">Borrar</a>
                     {% endif %}
                 </div>
               </div>

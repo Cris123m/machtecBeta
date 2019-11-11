@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title2 %}{% block title1 %}{% block title %}Productos{% endblock %}{% endblock %}{% endblock %}
+{% block banner %}collagephotos.jpeg{% endblock %}{% comment %} breadcrumbs-image.jpg {% endcomment %}
+{% block content %}
+{% include "products/include/product_menu.html" %}
+
+      <section class="section section-md bg-gray-lighter text-center">
+        <div class="shell">
+          <div class="range range-30">
+          {% for product in product_list %}
+            <div class="cell-sm-6 cell-md-4 wow fadeInLeftSmall" data-wow-delay="{{product.time}}s">
+              <!-- Post boxed-->
+              <article class="post-boxed">
+                <div class="row">
+                  <div class="col-sm-12 isotope-item"><a class="thumb-ruby thumb-mixed_height-2 thumb-mixed_md" href="{{product.photo.url}}" data-lightgallery="item"><img class="thumb-ruby__image" src="{{product.photo.url}}" alt="" width="440" height="327"/>
+                    <div class="thumb-ruby__caption"> 
+                      <p class="thumb-ruby__title heading-3">{{product.title}}</p>
+                      <p class="thumb-ruby__text">{{product.description|striptags|safe|truncatechars:"100"}}</p>
+                    </div></a>
+                  </div>
+                </div>
+                <div class="post-boxed__main">
+                  <h3 class="post-boxed__title"><a href="#">Precio desde: ${{product.price}}</a></h3>
+                  <p><a href="{% url 'product' product.id product.title|slugify %}">Ver más</a></p>
+                  {% if request.user.is_staff %}
+                    <a href="{% url 'update' product.id %}">Editar</a>
+                    <a href="{% url 'delete' product.id %}">Eliminar</a>
+                  {% endif %}
+                </div>                
+              </article>
+            </div>
+            {% endfor %}
+          </div>          
+        </div>
+      </section>
+
+{% endblock %}
