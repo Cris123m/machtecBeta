@@ -28,6 +28,9 @@
                 <input class="form-input" id="id_password" type="password" name="password" data-constraints="@Required">
                 <label class="form-label" for="id_password">Contraseña</label>
               </div>
+              <div class="form-wrap">
+                <a href="{% url 'password_reset' %}">¿Olvido su contraseña?</a>
+              </div>
               <div class="form-wrap form-button offset-1">
                 <button class="button button-block button-primary-outline button-ujarak" type="submit">Iniciar Sesión</button>
               </div>

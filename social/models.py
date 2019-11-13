@@ -7,6 +7,8 @@ class Link(models.Model):
     url=models.URLField(verbose_name="Enlace ", max_length=200, null=True, blank=True)
     created=models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated=models.DateTimeField(auto_now=True, verbose_name="Fecha de actualización")
+    
+    
 
     class Meta:
         verbose_name="enlace"
