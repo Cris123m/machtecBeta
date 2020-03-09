@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title2 %}{% block title1 %}{% block title %}Eliminar servicio{% endblock %}{% endblock %}{% endblock %}
+{% block banner %}collagephotos.jpeg{% endblock %}{% comment %} breadcrumbs-image.jpg {% endcomment %}
+{% block content %}
+{% include "photos/include/photo_menu.html" %}
+  <!-- Book Your Photo Shoot-->
+  <section class="section section-md bg-white">
+    <div class="shell">
+      <div class="range range-50 range-sm-center range-md-left range-md-reverse range-md-middle">
+        
+        <div class="cell-sm-10 cell-md-11 wow fadeInLeft">
+          <article class="box-line"><span></span><span></span><span></span><span></span>
+            <div class="">
+              <!-- RD Mailform-->
+              <form class="rd-form" data-form-output="form-output-global" data-form-type="contact" method="post">{% csrf_token %}
+                <div class="form-wrap">
+                  <p>¿Estás segur@ de que quieres eliminar "{{ object }}"?</p>
+                </div>                
+                <div class="form-wrap form-button offset-1">
+                  <input class="button button-block button-primary-outline button-ujarak" type="submit" value="Eliminar">
+                </div>
+              </form>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

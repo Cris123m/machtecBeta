@@ -21,10 +21,13 @@ urlpatterns = [
     path('',include('core.urls')),
     path('photos/', include('photos.urls')),
     path('products/', include('products.urls')),
+    path('services/', include('services.urls')),
     path('admin/', admin.site.urls),
     #path autentificación
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
+    #carrito
+    path('cart/', include('cart.urls')),
 ]
 
 if settings.DEBUG:

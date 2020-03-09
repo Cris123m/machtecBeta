@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'photos.apps.PhotoConfig',
     'products.apps.ProductConfig',
+    'services.apps.ServiceConfig',
     'core',
+    'cart',
     'social.apps.SocialConfig',
     'ckeditor',
 ]

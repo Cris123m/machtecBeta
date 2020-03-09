@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title2 %}{% block title1 %}{% block title %}Servicios{% endblock %}{% endblock %}{% endblock %}
+{% block banner %}collagephotos.jpeg{% endblock %}{% comment %} breadcrumbs-image.jpg {% endcomment %}
+{% block content %}
+{% include "services/include/service_menu.html" %}
+
+      <section class="section section-md bg-gray-lighter text-center">
+        <div class="shell">
+          <div class="range range-30">
+          {% for service in service_list %}
+            <div class="cell-sm-6 cell-md-4 wow fadeInLeftSmall" data-wow-delay="{{service.time}}s">
+              <!-- Post boxed-->
+              <article class="post-boxed">
+                <div class="row">
+                  <div class="col-sm-12 isotope-item"><a class="thumb-ruby thumb-mixed_height-2 thumb-mixed_md" href="{{service.photo.url}}" data-lightgallery="item"><img class="thumb-ruby__image" src="{{service.photo.url}}" alt="" width="440" height="327"/>
+                    <div class="thumb-ruby__caption"> 
+                      <p class="thumb-ruby__title heading-3">{{service.title}}</p>
+                      <p class="thumb-ruby__text">{{service.description|striptags|safe|truncatechars:"100"}}</p>
+                    </div></a>
+                  </div>
+                </div>
+                <div class="post-boxed__main">
+                  <h3 class="post-boxed__title"><a href="#">Precio desde: ${{service.price}}</a></h3>
+                  <p><a href="{% url 'service' service.id service.title|slugify %}">Ver más</a></p>
+                  <button class="button button-block button-primary-outline button-ujarak" type="">Comprar</button>
+                  <a href="{% url 'cart:add_to_cart' service.id %}" >Añadir al carrito</a>
+                  {% if request.user.is_staff %}
+                    <a href="{% url 'update' service.id %}">Editar</a>
+                    <a href="{% url 'delete' service.id %}">Eliminar</a>
+                  {% endif %}
+                </div>                
+              </article>
+            </div>
+            {% endfor %}
+          </div>          
+        </div>
+      </section>
+
+{% endblock %}

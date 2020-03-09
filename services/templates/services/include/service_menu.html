@@ -1,0 +1,23 @@
+{% if request.user.is_staff %}
+{% load static %}
+
+<div class="rd-navbar-wrap">
+<nav class="rd-navbar">
+  <div class="rd-navbar-main">
+    <span class="navbar-brand" href="#"><i>Administrar</i></span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="rd-navbar-nav" id="nep">
+      <ul class="rd-navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'create' %}"><i>Agregar servicio</i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'services' %}"><i>Ver servicios</i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+{% endif %}
